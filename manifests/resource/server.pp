@@ -331,10 +331,10 @@ define nginx::resource::server (
   Enum['on', 'off'] $spdy                                                        = $nginx::spdy,
   Enum['on', 'off'] $http2                                                       = $nginx::http2,
   Optional[String] $proxy                                                        = undef,
-  Optional[Variant[Array[String],String]] $proxy_redirect                        = undef,
-  String $proxy_read_timeout                                                     = $nginx::proxy_read_timeout,
-  String $proxy_send_timeout                                                     = $nginx::proxy_send_timeout,
-  $proxy_connect_timeout                                                         = $nginx::proxy_connect_timeout,
+  Optional[Variant[Array[String], String]] $proxy_redirect                       = undef,
+  Optional[Nginx::Time] $proxy_read_timeout                                      = $nginx::proxy_read_timeout,
+  Optional[Nginx::Time] $proxy_send_timeout                                      = $nginx::proxy_send_timeout,
+  Optional[Nginx::Time] $proxy_connect_timeout                                   = $nginx::proxy_connect_timeout,
   Array[String] $proxy_set_header                                                = $nginx::proxy_set_header,
   Array[String] $proxy_hide_header                                               = $nginx::proxy_hide_header,
   Array[String] $proxy_pass_header                                               = $nginx::proxy_pass_header,
@@ -423,7 +423,7 @@ define nginx::resource::server (
   Hash $locations                                                                = {},
   Hash $locations_defaults                                                       = {},
 ) {
-  if ! defined(Class['nginx']) {
+  if !defined(Class['nginx']) {
     fail('You must include the nginx base class before using any defined resources')
   }
 

@@ -58,8 +58,8 @@ define nginx::resource::streamhost (
   Integer $ipv6_listen_port                    = $listen_port,
   String $ipv6_listen_options                  = 'default ipv6only=on',
   $proxy                                       = undef,
-  String $proxy_read_timeout                   = $nginx::proxy_read_timeout,
-  $proxy_connect_timeout                       = $nginx::proxy_connect_timeout,
+  Optional[Nginx::Time] $proxy_read_timeout    = $nginx::proxy_read_timeout,
+  Optional[Nginx::Time] $proxy_connect_timeout = $nginx::proxy_connect_timeout,
   Array $resolver                              = [],
   Variant[Array[String], String] $raw_prepend  = [],
   Variant[Array[String], String] $raw_append   = [],
@@ -67,7 +67,7 @@ define nginx::resource::streamhost (
   String $group                                = $nginx::global_group,
   String $mode                                 = $nginx::global_mode,
 ) {
-  if ! defined(Class['nginx']) {
+  if !defined(Class['nginx']) {
     fail('You must include the nginx base class before using any defined resources')
   }
 

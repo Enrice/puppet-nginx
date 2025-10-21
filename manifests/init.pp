@@ -129,8 +129,8 @@
 # @param mime_types_path
 # @param stream
 # @param multi_accept
-# @param server_names_hash_bucket_size
-# @param server_names_hash_max_size
+# @param names_hash_bucket_size
+# @param names_hash_max_size
 # @param nginx_cfg_prepend
 # @param proxy_buffers
 # @param proxy_buffer_size
@@ -307,8 +307,8 @@ class nginx (
   Variant[String, Boolean] $mime_types_path                                                                  = 'mime.types',
   Boolean $stream                                                                                            = false,
   Optional[Enum['on', 'off']] $multi_accept                                                                  = undef,
-  Optional[Integer] $server_names_hash_bucket_size                                                           = undef, # nginx default depends on the size of the processor's cache line
-  Optional[Integer] $server_names_hash_max_size                                                              = undef,
+  Optional[Integer] $names_hash_bucket_size                                                                  = undef, # nginx default depends on the size of the processor's cache line
+  Optional[Integer] $names_hash_max_size                                                                     = undef,
   Variant[Boolean, Array, Hash] $nginx_cfg_prepend                                                           = false,
   Optional[String] $proxy_buffers                                                                            = undef, # nginx defaults to 1 memory page
   Optional[Nginx::Size] $proxy_buffer_size                                                                   = undef, # nginx default is 1 memory page

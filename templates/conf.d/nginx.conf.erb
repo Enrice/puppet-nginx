@@ -134,11 +134,11 @@ http {
   types_hash_bucket_size <%= @types_hash_bucket_size %>;
 <% end -%>
 
-<% if @server_names_hash_bucket_size -%>
-  server_names_hash_bucket_size <%= @server_names_hash_bucket_size %>;
+<% if @names_hash_bucket_size -%>
+  server_names_hash_bucket_size <%= @names_hash_bucket_size %>;
 <% end -%>
-<% if @server_names_hash_max_size -%>
-  server_names_hash_max_size <%= @server_names_hash_max_size %>;
+<% if @names_hash_max_size -%>
+  server_names_hash_max_size <%= @names_hash_max_size %>;
 <% end -%>
 
 <% if @map_hash_bucket_size -%>

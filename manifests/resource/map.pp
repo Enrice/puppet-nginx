@@ -65,7 +65,7 @@
 #
 define nginx::resource::map (
   String[2] $string,
-  Nginx::StringMappings $mappings = [],
+  Nginx::StringMappings $mappings   = [],
   Optional[String] $default         = undef,
   Enum['absent', 'present'] $ensure = 'present',
   Array[String] $include_files      = [],
@@ -78,7 +78,7 @@ define nginx::resource::map (
 
   $root_group = $nginx::root_group
 
-  $conf_dir   = $context ? {
+  $conf_dir = $context ? {
     'stream' => "${nginx::conf_dir}/conf.stream.d",
     'http'   => "${nginx::conf_dir}/conf.d",
   }

@@ -264,10 +264,10 @@ define nginx::resource::location (
     'index.php',
   ],
   Optional[String] $proxy                                          = undef,
-  Optional[Variant[Array[String],String]] $proxy_redirect          = $nginx::proxy_redirect,
-  String $proxy_read_timeout                                       = $nginx::proxy_read_timeout,
-  String $proxy_connect_timeout                                    = $nginx::proxy_connect_timeout,
-  String $proxy_send_timeout                                       = $nginx::proxy_send_timeout,
+  Optional[Variant[Array[String], String]] $proxy_redirect         = $nginx::proxy_redirect,
+  Optional[Nginx::Time] $proxy_read_timeout                        = $nginx::proxy_read_timeout,
+  Optional[Nginx::Time] $proxy_connect_timeout                     = $nginx::proxy_connect_timeout,
+  Optional[Nginx::Time] $proxy_send_timeout                        = $nginx::proxy_send_timeout,
   Array $proxy_set_header                                          = $nginx::proxy_set_header,
   Array $proxy_hide_header                                         = $nginx::proxy_hide_header,
   Array $proxy_pass_header                                         = $nginx::proxy_pass_header,
@@ -286,7 +286,7 @@ define nginx::resource::location (
   Boolean $ssl                                                     = false,
   Boolean $ssl_only                                                = false,
   Optional[String] $location_alias                                 = undef,
-  Optional[Variant[String[1],Array[String[1],1]]] $limit_zone      = undef,
+  Optional[Variant[String[1], Array[String[1], 1]]] $limit_zone    = undef,
   Optional[Enum['any', 'all']] $location_satisfy                   = undef,
   Optional[Array] $location_allow                                  = undef,
   Optional[Array] $location_deny                                   = undef,
@@ -358,8 +358,7 @@ define nginx::resource::location (
   # Use proxy, fastcgi or uwsgi template if $proxy is defined, otherwise use directory template.
   # fastcgi_script is deprecated
   if ($fastcgi_script != undef) {
-    warning(
-    'The $fastcgi_script parameter is deprecated; please use $fastcgi_param instead to define custom fastcgi_params!')
+    warning('The $fastcgi_script parameter is deprecated; please use $fastcgi_param instead to define custom fastcgi_params!')
   }
 
   # Only try to manage these files if they're the default one (as you presumably

@@ -645,13 +645,13 @@ describe 'nginx' do
               },
               {
                 title: 'should set server_names_hash_bucket_size',
-                attr: 'server_names_hash_bucket_size',
+                attr: 'names_hash_bucket_size',
                 value: 10,
                 match: '  server_names_hash_bucket_size 10;'
               },
               {
                 title: 'should set server_names_hash_max_size',
-                attr: 'server_names_hash_max_size',
+                attr: 'names_hash_max_size',
                 value: 10,
                 match: '  server_names_hash_max_size 10;'
               },

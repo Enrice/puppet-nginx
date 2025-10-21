@@ -1056,12 +1056,6 @@ describe 'nginx::resource::location' do
               match: %r{\s+proxy_connect_timeout\s+value;}
             },
             {
-              title: 'should set proxy_read_timeout',
-              attr: 'proxy_read_timeout',
-              value: 'value',
-              match: %r{\s+proxy_read_timeout\s+value;}
-            },
-            {
               title: 'should set proxy headers',
               attr: 'proxy_set_header',
               value: ['X-TestHeader1 value1', 'X-TestHeader2 value2'],
