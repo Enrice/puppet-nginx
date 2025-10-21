@@ -85,8 +85,8 @@ class nginx::config {
     default => $nginx::mime_types,
   }
   $multi_accept                   = $nginx::multi_accept
-  $names_hash_bucket_size         = $nginx::names_hash_bucket_size
-  $names_hash_max_size            = $nginx::names_hash_max_size
+  $server_names_hash_bucket_size  = $nginx::server_names_hash_bucket_size
+  $server_names_hash_max_size     = $nginx::server_names_hash_max_size
   $nginx_cfg_prepend              = $nginx::nginx_cfg_prepend
   $proxy_buffers                  = $nginx::proxy_buffers
   $proxy_buffer_size              = $nginx::proxy_buffer_size
