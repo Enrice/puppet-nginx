@@ -165,8 +165,8 @@ The following parameters are available in the `nginx` class:
 * [`mime_types_path`](#-nginx--mime_types_path)
 * [`stream`](#-nginx--stream)
 * [`multi_accept`](#-nginx--multi_accept)
-* [`server_names_hash_bucket_size`](#-nginx--server_names_hash_bucket_size)
-* [`server_names_hash_max_size`](#-nginx--server_names_hash_max_size)
+* [`names_hash_bucket_size`](#-nginx--names_hash_bucket_size)
+* [`names_hash_max_size`](#-nginx--names_hash_max_size)
 * [`nginx_cfg_prepend`](#-nginx--nginx_cfg_prepend)
 * [`proxy_buffers`](#-nginx--proxy_buffers)
 * [`proxy_buffer_size`](#-nginx--proxy_buffer_size)
@@ -987,7 +987,7 @@ Data type: `Optional[Enum['on', 'off']]`
 
 Default value: `undef`
 
-##### <a name="-nginx--server_names_hash_bucket_size"></a>`server_names_hash_bucket_size`
+##### <a name="-nginx--names_hash_bucket_size"></a>`names_hash_bucket_size`
 
 Data type: `Optional[Integer]`
 
@@ -995,7 +995,7 @@ Data type: `Optional[Integer]`
 
 Default value: `undef`
 
-##### <a name="-nginx--server_names_hash_max_size"></a>`server_names_hash_max_size`
+##### <a name="-nginx--names_hash_max_size"></a>`names_hash_max_size`
 
 Data type: `Optional[Integer]`
 
@@ -2123,7 +2123,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--location--proxy_redirect"></a>`proxy_redirect`
 
-Data type: `Optional[Variant[Array[String],String]]`
+Data type: `Optional[Variant[Array[String], String]]`
 
 sets the text, which must be changed in response-header "Location" and
 "Refresh" in the response of the proxied server.
@@ -2132,7 +2132,7 @@ Default value: `$nginx::proxy_redirect`
 
 ##### <a name="-nginx--resource--location--proxy_read_timeout"></a>`proxy_read_timeout`
 
-Data type: `String`
+Data type: `Optional[Nginx::Time]`
 
 Override the default the proxy read timeout value of 90 seconds
 
@@ -2140,7 +2140,7 @@ Default value: `$nginx::proxy_read_timeout`
 
 ##### <a name="-nginx--resource--location--proxy_connect_timeout"></a>`proxy_connect_timeout`
 
-Data type: `String`
+Data type: `Optional[Nginx::Time]`
 
 Override the default the proxy connect timeout value of 90 seconds
 
@@ -2148,7 +2148,7 @@ Default value: `$nginx::proxy_connect_timeout`
 
 ##### <a name="-nginx--resource--location--proxy_send_timeout"></a>`proxy_send_timeout`
 
-Data type: `String`
+Data type: `Optional[Nginx::Time]`
 
 Override the default the proxy send timeout
 value of 90 seconds
@@ -2323,7 +2323,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--location--limit_zone"></a>`limit_zone`
 
-Data type: `Optional[Variant[String[1],Array[String[1],1]]]`
+Data type: `Optional[Variant[String[1], Array[String[1], 1]]]`
 
 Apply a limit_req_zone to the location. Expects a string or array of
 strings indicating a previously defined limit_req_zone in the main nginx
@@ -2828,7 +2828,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--mailhost--ssl_ciphers"></a>`ssl_ciphers`
 
-Data type: `String`
+Data type: `Optional[String]`
 
 Override default SSL ciphers.
 
@@ -2896,7 +2896,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--mailhost--ssl_prefer_server_ciphers"></a>`ssl_prefer_server_ciphers`
 
-Data type: `Enum['on', 'off']`
+Data type: `Optional[Enum['on', 'off']]`
 
 Specifies that server ciphers should be preferred over client ciphers when
 using the SSLv3 and TLS protocols.
@@ -2905,7 +2905,7 @@ Default value: `$nginx::ssl_prefer_server_ciphers`
 
 ##### <a name="-nginx--resource--mailhost--ssl_protocols"></a>`ssl_protocols`
 
-Data type: `String`
+Data type: `Optional[String]`
 
 SSL protocols enabled.
 
@@ -3637,7 +3637,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--server--proxy_read_timeout"></a>`proxy_read_timeout`
 
-Data type: `String`
+Data type: `Optional[Nginx::Time]`
 
 Override the default proxy read timeout value of 90 seconds
 
@@ -3645,7 +3645,7 @@ Default value: `$nginx::proxy_read_timeout`
 
 ##### <a name="-nginx--resource--server--proxy_send_timeout"></a>`proxy_send_timeout`
 
-Data type: `String`
+Data type: `Optional[Nginx::Time]`
 
 Override the default proxy send timeout value of 90 seconds
 
@@ -3653,7 +3653,7 @@ Default value: `$nginx::proxy_send_timeout`
 
 ##### <a name="-nginx--resource--server--proxy_redirect"></a>`proxy_redirect`
 
-Data type: `Optional[Variant[Array[String],String]]`
+Data type: `Optional[Variant[Array[String], String]]`
 
 Override the default proxy_redirect value of off.
 
@@ -4428,7 +4428,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--server--proxy_connect_timeout"></a>`proxy_connect_timeout`
 
-Data type: `Any`
+Data type: `Optional[Nginx::Time]`
 
 
 
@@ -4721,7 +4721,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--streamhost--proxy_read_timeout"></a>`proxy_read_timeout`
 
-Data type: `String`
+Data type: `Optional[Nginx::Time]`
 
 Override the default the proxy read timeout value of 90 seconds
 
@@ -4782,7 +4782,7 @@ Default value: `$nginx::global_mode`
 
 ##### <a name="-nginx--resource--streamhost--proxy_connect_timeout"></a>`proxy_connect_timeout`
 
-Data type: `Any`
+Data type: `Optional[Nginx::Time]`
 
 
 
@@ -5215,7 +5215,7 @@ Default value: `undef`
 
 ##### <a name="-nginx--resource--upstream--member--state"></a>`state`
 
-Data type: `Optional[Enum['drain','down']]`
+Data type: `Optional[Enum['drain', 'down']]`
 
 Set the state for this upstream member
 
