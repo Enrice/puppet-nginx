@@ -1,15 +1,15 @@
 # @summary Manage NGINX package installation on debian based systems
 # @api private
 class nginx::package::debian {
-  $package_name             = $nginx::package_name
-  $package_source           = $nginx::package_source
-  $package_ensure           = $nginx::package_ensure
-  $package_flavor           = $nginx::package_flavor
+  $package_name = $nginx::package_name
+  $package_source = $nginx::package_source
+  $package_ensure = $nginx::package_ensure
+  $package_flavor = $nginx::package_flavor
   $passenger_package_ensure = $nginx::passenger_package_ensure
-  $passenger_package_name   = $nginx::passenger_package_name
-  $manage_repo              = $nginx::manage_repo
-  $release                  = $nginx::repo_release
-  $repo_source              = $nginx::repo_source
+  $passenger_package_name = $nginx::passenger_package_name
+  $manage_repo = $nginx::manage_repo
+  $release = $nginx::repo_release
+  $repo_source = $nginx::repo_source
 
   $distro = downcase($facts['os']['name'])
 

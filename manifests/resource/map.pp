@@ -72,7 +72,7 @@ define nginx::resource::map (
   Boolean $hostnames                = false,
   Enum['http', 'stream'] $context   = 'http',
 ) {
-  if ! defined(Class['nginx']) {
+  if !defined(Class['nginx']) {
     fail('You must include the nginx base class before using any defined resources')
   }
 

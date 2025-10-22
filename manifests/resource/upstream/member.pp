@@ -74,7 +74,7 @@ define nginx::resource::upstream::member (
   Optional[String[1]] $params_append            = undef,
   Optional[String[1]] $comment                  = undef,
 ) {
-  if ! defined(Class['nginx']) {
+  if !defined(Class['nginx']) {
     fail('You must include the nginx base class before using any defined resources')
   }
 

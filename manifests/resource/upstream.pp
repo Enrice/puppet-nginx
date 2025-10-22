@@ -125,15 +125,15 @@ define nginx::resource::upstream (
   Nginx::UpstreamCustomParameters $cfg_append    = {},
   Nginx::UpstreamCustomParameters $cfg_prepend   = {},
 ) {
-  if ! defined(Class['nginx']) {
+  if !defined(Class['nginx']) {
     fail('You must include the nginx base class before using any defined resources')
   }
 
   if $least_time {
-    if $context == 'http' and ! ($least_time =~ Nginx::UpstreamLeastTimeHttp) {
+    if $context == 'http' and !($least_time =~ Nginx::UpstreamLeastTimeHttp) {
       fail('The parameter "least_time" does not match the datatype "Nginx::UpstreamLeastTimeHttp"')
     }
-    if $context == 'stream' and ! ($least_time =~ Nginx::UpstreamLeastTimeStream) {
+    if $context == 'stream' and !($least_time =~ Nginx::UpstreamLeastTimeStream) {
       fail('The parameter "least_time" does not match the datatype "Nginx::UpstreamLeastTimeStream"')
     }
   }
@@ -167,7 +167,7 @@ define nginx::resource::upstream (
     ),
   }
 
-  if ! empty($members) {
+  if !empty($members) {
     $members.each |$member, $values| {
       $member_values = $member_defaults + $values + { 'upstream' => $name, 'context' => $context }
 

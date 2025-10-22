@@ -64,7 +64,7 @@ define nginx::resource::geo (
   Optional[Array] $proxies           = undef,
   Optional[Boolean] $proxy_recursive = undef
 ) {
-  if ! defined(Class['nginx']) {
+  if !defined(Class['nginx']) {
     fail('You must include the nginx base class before using any defined resources')
   }
 
