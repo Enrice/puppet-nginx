@@ -17,8 +17,12 @@
   Optional[Integer] $ssl_verify_depth,
 | -%>
 
+<%- if $ssl_cert { -%>
   ssl_certificate            <%= $ssl_cert %>;
+<%- } -%>
+<%- if $ssl_key { -%>
   ssl_certificate_key        <%= $ssl_key %>;
+<%- } -%>
 <%- if $ssl_ciphers { -%>
   ssl_ciphers                <%= $ssl_ciphers %>;
 <%- } -%>
@@ -41,8 +45,12 @@
 <%- if $ssl_password_file { -%>
   ssl_password_file          <%= $ssl_password_file %>;
 <%- } -%>
+<% if $ssl_prefer_server_ciphers { -%>
   ssl_prefer_server_ciphers  <%= $ssl_prefer_server_ciphers %>;
+<%- } -%>
+<% if $ssl_protocols { -%>
   ssl_protocols              <%= $ssl_protocols %>;
+<%- } -%>
 <%- if $ssl_session_cache { -%>
   ssl_session_cache          <%= $ssl_session_cache %>;
 <%- } -%>
