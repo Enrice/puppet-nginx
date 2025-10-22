@@ -119,9 +119,9 @@ http {
 
 <% if @sendfile == 'on' -%>
   sendfile on;
-  <%- if @http_tcp_nopush == 'on' -%>
+<% end -%>
+<% if @http_tcp_nopush == 'on' -%>
   tcp_nopush on;
-  <%- end -%>
 <% end -%>
 <% if @server_tokens -%>
   server_tokens <%= @server_tokens %>;
