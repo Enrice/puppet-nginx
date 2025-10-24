@@ -5127,7 +5127,7 @@ Default value: `'http'`
 
 ##### <a name="-nginx--resource--upstream--member--server"></a>`server`
 
-Data type: `Optional[Nginx::UpstreamMemberServer]`
+Data type: `Nginx::UpstreamMemberServer`
 
 Hostname or IP of the upstream member server
 
