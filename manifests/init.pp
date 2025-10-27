@@ -262,10 +262,10 @@ class nginx (
 
   ### START Nginx Configuration ###
   Optional[Enum['on', 'off']] $absolute_redirect = undef,
-  Optional[Enum['on', 'off']] $accept_mutex = undef, # nginx default is 'off'
+  Optional[Enum['on', 'off']] $accept_mutex = undef,
   Optional[Nginx::Time] $accept_mutex_delay = undef,
-  Optional[Nginx::Size] $client_body_buffer_size = undef, # nginx default is 2 memory pages
-  Optional[Nginx::Size] $client_max_body_size = undef, # nginx default is '1m'
+  Optional[Nginx::Size] $client_body_buffer_size = undef,
+  Optional[Nginx::Size] $client_max_body_size = undef,
   Optional[Nginx::Time] $client_body_timeout = undef,
   Optional[Nginx::Time] $send_timeout = undef,
   Optional[Nginx::Time] $lingering_timeout = undef,
@@ -297,8 +297,8 @@ class nginx (
   Optional[Variant[Array[String], String]] $http_raw_append = undef,
   Optional[Enum['on', 'off']] $http_tcp_nodelay = undef,
   Optional[Enum['on', 'off']] $http_tcp_nopush = undef,
-  Optional[Nginx::Time] $keepalive_timeout = undef, # nginx default is '75s'
-  Optional[Integer] $keepalive_requests = undef, # nginx default is 1000
+  Optional[Nginx::Time] $keepalive_timeout = undef,
+  Optional[Integer] $keepalive_requests = undef,
   Hash[String[1], Nginx::LogFormat] $log_format = {},
   Hash[String[1], Nginx::LogFormat] $stream_log_format = {},
   Boolean $mail = false,
@@ -307,11 +307,11 @@ class nginx (
   Variant[String, Boolean] $mime_types_path = 'mime.types',
   Boolean $stream = false,
   Optional[Enum['on', 'off']] $multi_accept = undef,
-  Optional[Integer] $names_hash_bucket_size = undef, # nginx default depends on the size of the processor's cache line
+  Optional[Integer] $names_hash_bucket_size = undef,
   Optional[Integer] $names_hash_max_size = undef,
   Variant[Boolean, Array, Hash] $nginx_cfg_prepend = false,
-  Optional[String] $proxy_buffers = undef, # nginx defaults to 1 memory page
-  Optional[Nginx::Size] $proxy_buffer_size = undef, # nginx default is 1 memory page
+  Optional[String] $proxy_buffers = undef,
+  Optional[Nginx::Size] $proxy_buffer_size = undef,
   Nginx::Time $proxy_cache_inactive = '20m',
   String $proxy_cache_keys_zone = 'd2:100m',
   String $proxy_cache_levels = '1',
@@ -321,13 +321,13 @@ class nginx (
   Optional[String] $proxy_cache_loader_sleep = undef,
   Optional[String] $proxy_cache_loader_threshold = undef,
   Optional[Enum['on', 'off']] $proxy_use_temp_path = undef,
-  Optional[Nginx::Time] $proxy_connect_timeout = undef, # nginx default is '60s'
+  Optional[Nginx::Time] $proxy_connect_timeout = undef,
   Optional[Integer] $proxy_headers_hash_bucket_size = undef,
   Optional[Integer] $proxy_headers_hash_max_size = undef,
   Optional[String] $proxy_http_version = undef,
-  Optional[Nginx::Time] $proxy_read_timeout = undef, # nginx default is '60s'
+  Optional[Nginx::Time] $proxy_read_timeout = undef,
   Optional[Variant[Array[String], String]] $proxy_redirect = undef,
-  Optional[Nginx::Time] $proxy_send_timeout = undef, # nginx default is '60s'
+  Optional[Nginx::Time] $proxy_send_timeout = undef,
   Array $proxy_set_header = [
     'Host $host',
     'X-Real-IP $remote_addr',
@@ -341,7 +341,7 @@ class nginx (
   Array $proxy_ignore_header = [],
   Optional[Nginx::Size] $proxy_max_temp_file_size = undef,
   Optional[Nginx::Size] $proxy_busy_buffers_size = undef,
-  Optional[Enum['on', 'off']] $sendfile = undef, # nginx default is 'off'
+  Optional[Enum['on', 'off']] $sendfile = undef,
   Optional[Enum['on', 'off']] $server_tokens = undef,
   Enum['on', 'off'] $spdy = 'off',
   Enum['on', 'off'] $http2 = 'off',
@@ -349,18 +349,18 @@ class nginx (
   Optional[Enum['on', 'off']] $ssl_stapling_verify = undef,
   Stdlib::Absolutepath $snippets_dir = $nginx::params::snippets_dir,
   Boolean $manage_snippets_dir = true,
-  Optional[Integer] $types_hash_bucket_size = undef, # nginx default is 64
+  Optional[Integer] $types_hash_bucket_size = undef,
   Optional[Integer] $types_hash_max_size = undef,
-  Optional[Integer] $worker_connections = undef, # nginx default is 512
-  Optional[Enum['on', 'off']] $ssl_prefer_server_ciphers = undef, # nginx default is 'off'
-  Optional[Variant[Integer, Enum['auto']]] $worker_processes = undef, # nginx default is 1
+  Optional[Integer] $worker_connections = undef,
+  Optional[Enum['on', 'off']] $ssl_prefer_server_ciphers = undef,
+  Optional[Variant[Integer, Enum['auto']]] $worker_processes = undef,
   Integer $worker_rlimit_nofile = 1024,
   Optional[Enum['on', 'off']] $pcre_jit = undef,
-  Optional[String] $ssl_protocols = undef, # nginx default is 'TLSv1.2 TLSv1.3'
-  Optional[String] $ssl_ciphers = undef, # nginx default is 'HIGH:!aNULL:!MD5'
+  Optional[String] $ssl_protocols = undef,
+  Optional[String] $ssl_ciphers = undef,
   Optional[Stdlib::Unixpath] $ssl_dhparam = undef,
   Optional[String] $ssl_ecdh_curve = undef,
-  Optional[String] $ssl_session_cache = undef, # nginx default is 'none'
+  Optional[String] $ssl_session_cache = undef,
   Optional[Nginx::Time] $ssl_session_timeout = undef,
   Optional[Enum['on', 'off']] $ssl_session_tickets = undef,
   Optional[Stdlib::Absolutepath] $ssl_session_ticket_key = undef,
